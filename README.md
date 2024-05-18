@@ -11,7 +11,7 @@ Create new Project from Virsion Control
 Past the Project URL
 
 ```bash
-  https://link-to-project
+  https://github.com/AhmedIbrahimFahmy/Task-Manager
 ```
 
 Go to the project directory
