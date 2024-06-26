@@ -1,20 +1,17 @@
 class Task {
   int id;
-  String todo;
-  bool completed;
-  int userId;
+  String body;
+  int status;
 
   Task({
     required this.id,
-    required this.completed,
-    required this.todo,
-    required this.userId,
-});
+    required this.status,
+    required this.body,
+  });
 
   static Task FromJson(json) => Task(
-      id: json["id"],
-      completed: json["completed"],
-      todo: json["todo"],
-      userId: json["userId"]
-  );
+        id: json["id"],
+        status: json["status"],
+        body: json["body"],
+      );
 }

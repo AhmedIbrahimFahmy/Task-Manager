@@ -32,17 +32,17 @@ class ViewTask extends StatelessWidget {
                         await TaskCubit.get(context).UpdateTask(
                             index: index,
                             taskId: task.id,
-                            completed: !task.completed
+                            status: 1 - task.status,
                         );
                       },
-                      style: ElevatedButton.styleFrom(backgroundColor: task.completed ? Colors.yellow : Colors.green),
-                      child: Icon(task.completed ? Icons.hourglass_bottom : Icons.done_all_rounded, color: Colors.black,),
+                      style: ElevatedButton.styleFrom(backgroundColor: task.status == 0 ? Colors.yellow : Colors.green),
+                      child: Icon(task.status == 0 ? Icons.hourglass_bottom : Icons.done_all_rounded, color: Colors.black,),
                     ),
                     Gap(10),
                     ElevatedButton(
-                      onPressed: () async {
+                      onPressed: () {
                         NavigateBack(context);
-                        await TaskCubit.get(context).DeleteTask(index: index, taskId: task.id);
+                        TaskCubit.get(context).DeleteTask(index: index, taskId: task.id);
                       },
                       style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                       child: const Icon(Icons.delete_rounded, color: Colors.black,),
@@ -50,13 +50,13 @@ class ViewTask extends StatelessWidget {
                     Spacer(),
                     Container(
                       decoration: BoxDecoration(
-                        color: task.completed ? Colors.green : Colors.yellow,
+                        color: task.status == 1 ? Colors.green : Colors.yellow,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          task.completed ? "completed" : "incomplete",
+                          task.status == 1 ? "completed" : "incomplete",
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -74,13 +74,13 @@ class ViewTask extends StatelessWidget {
                         Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
-                              color: task.completed ? Colors.green : Colors.yellow,
+                              color: task.status == 1 ? Colors.green : Colors.yellow,
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                "${task.todo}",
+                                "${task.body}",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 25,

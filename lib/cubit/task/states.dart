@@ -3,14 +3,8 @@ abstract class TaskStates {}
 // Initial State
 class TaskInitialState extends TaskStates {}
 
-// Get User's Online Tasks State
-class GetUserOnlineTasksState extends TaskStates {}
-
 // Get User's Local Tasks State
 class GetUserLocalTasksState extends TaskStates {}
-
-// Clear Tasks State
-class ClearMyTasksState extends TaskStates {}
 
 // Add Task States
 class AddTaskOnProgressState extends TaskStates {}

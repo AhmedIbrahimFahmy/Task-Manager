@@ -71,13 +71,13 @@ Widget TaskBuilder(context, int index, Task task) => GestureDetector(
               child: Container(
 
                 decoration: BoxDecoration(
-                  color: task.completed ? Colors.green : Colors.yellow,
+                  color: task.status == 1 ? Colors.green : Colors.yellow,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                      task.completed ? "completed" : "incomplete",
+                      task.status == 1 ? "completed" : "not completed",
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -86,7 +86,7 @@ Widget TaskBuilder(context, int index, Task task) => GestureDetector(
               ),
             ),
             Text(
-              task.todo,
+              task.body,
               style: const TextStyle(
                 fontSize: 20,
               ),
