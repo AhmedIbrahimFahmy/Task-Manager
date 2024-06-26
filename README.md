@@ -58,7 +58,7 @@ A few packages has been used in the app to make it more efficiency and friendly,
 
 
 ```bash
-  shared_preferences: ^2.2.3
+  sqflite: ^2.3.3+1
   #For handling the local storage
 ```
 
